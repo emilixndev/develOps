@@ -1,0 +1,26 @@
+GET / => homepage 	
+
+GET /articles/all => get all articles
+GET /articles/:id => get one article 
+POST /articles/new => create one article (for admin) 
+POST /articles/:id/edit 
+GET/articles/:id/delete
+
+GET /quiz/all => get all articles
+GET /quiz/:id => get one quiz 
+POST /quiz/new => create one quiz (for admin) 
+POST /quiz/:id/edit 
+GET/quiz/:id/delete
+
+
+GET /users => get current user profile
+POST /users/:id/edit => edit user info
+GET /users/logout => Logout session
+POST /users/login => Login user
+POST /users/register => Create user
+GET /users/login => Get login form
+GET /users/register => Get register form 
+GET /users/{id}/delete
+
+GET /admin/dashboard 
+
