@@ -1,16 +1,22 @@
 import express from "express";
-const {Router} = express
+import { getQuizzes, getQuiz, saveQuiz, editQuiz, deleteQuiz } from "../controllers/quiz.controller";
 
+const {Router} = express;
+const quizRouter = Router();
 
-const quizRouter = Router()
+// fetch all quizzes
+quizRouter.get('/quiz/all', getQuizzes);
 
-quizRouter.get('/quiz/new', async (req, res)=>{
-    res.render("quiz/new", {});
-});
+// fetch one quiz
+quizRouter.get('/quiz/:id', getQuiz);
 
-quizRouter.get('/quiz/:id/edit', async (req, res)=>{
-    res.render("quiz/edit", {});
-});
+// save new quiz
+quizRouter.post('/quiz/new', saveQuiz);
 
+// edit existing quiz
+quizRouter.post('/quiz/:id/edit', editQuiz);
+
+// delete one quiz
+quizRouter.get('/quiz/:id/delete', deleteQuiz);
 
 export default quizRouter;
