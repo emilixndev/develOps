@@ -1,17 +1,12 @@
 import express from "express";
+import { getUser, editUser, deleteUser } from "../controllers/users.controller";
 
 const usersRouter = express.Router();
 
-usersRouter.get("/login", async (req, res) => {
-  res.render("users/login", {});
-});
+usersRouter.get("/users/:id", getUser);
 
-usersRouter.get("/register", async (req, res) => {
-  res.render("users/register", {});
-});
+usersRouter.post("/users/:id/edit", editUser);
 
-usersRouter.get("/me", async (req, res) => {
-  res.render("users/me", {});
-});
+usersRouter.get("/users/:id/delete", deleteUser);
 
 export default usersRouter;

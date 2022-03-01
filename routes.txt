@@ -13,14 +13,13 @@ POST /quiz/:id/edit
 GET/quiz/:id/delete
 
 
+POST /signup => Create user
+POST /login => Login user
+GET /logout => Logout session
+
 GET /users => get current user profile
 POST /users/:id/edit => edit user info
-GET /users/logout => Logout session
-POST /users/login => Login user
-POST /users/register => Create user
-GET /users/login => Get login form
-GET /users/register => Get register form 
-GET /users/{id}/delete
+GET /users/:id/delete
 
 GET /admin/dashboard 
 
