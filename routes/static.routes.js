@@ -7,6 +7,16 @@ import { dirname } from "path";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const {Router} = express
 const staticRouter = Router();
+const router = express.Router();
+
+
+
+
+
+
+
+    router.get("/", getArticles);
+    
 
 
 staticRouter.get("*", (req, res) => {
