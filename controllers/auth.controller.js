@@ -4,7 +4,7 @@ export const createSession = async (req, res) => {
     try {
 
         if (req.method === "GET") {
-            res.render("layout", { template: "user/login", error: null });
+            res.render("layout", { template: "auth/login", error: null });
         }
 
         if (req.method === "POST") {
@@ -13,7 +13,7 @@ export const createSession = async (req, res) => {
             const user = await User.findOne({name: alias});
             if (!user) {
                 res.render("layout", {
-                    template: "user/login",
+                    template: "auth/login",
                     error: "no user with this alias",
                 });
                 return;
@@ -35,7 +35,7 @@ export const createSession = async (req, res) => {
             }
 
             res.render("layout", {
-                template: "user/login",
+                template: "auth/login",
                 error: "bad password",
             });
         }
@@ -51,7 +51,7 @@ export const deleteSession = (req, res, next) => {
 
 export const newUser = async (req, res) => {
     if (req.method === "GET") {
-        res.render("layout", { template: "user/register" });
+        res.render("layout", { template: "auth/register" });
     }
     if (req.method === "POST") {
         try {

@@ -16,7 +16,7 @@ export const getArticle = async (req, res) => {
 
         const article = await Article.findOne({ index: { $eq: id } });
 
-        res.render('articles/:id', {article});
+        res.render('articles/show', {article});
     } catch (err) {
         console.log(err);
     }
@@ -45,7 +45,7 @@ export const editArticle = async (req, res) => {
             {$set: body}
         );
 
-        res.redirect(303, '/articles/all');
+        res.redirect(303, '/articles/show');
     } catch (err) {
         console.log(err);
     }
