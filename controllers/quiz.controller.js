@@ -16,7 +16,7 @@ export const getQuiz = async (req, res) => {
 
         const quiz = await Quiz.findOne({ index: { $eq: id } });
 
-        res.render('quiz/:id', {quiz});
+        res.render('quiz/show', {quiz});
     } catch (err) {
         console.log(err);
     }
@@ -30,7 +30,7 @@ export const saveQuiz = async (req, res) => {
 
         await newQuiz.save();
         
-        res.redirect(303, '/quiz/all');
+        res.redirect(303, '/quiz/show');
     } catch (err) {
         console.log(err);
     }

@@ -7,7 +7,7 @@ export const getUser = async (req, res) => {
 
         const user = await User.findOne({ index: { $eq: id } });
 
-        res.render('users/:id', {user});
+        res.render('users/me', {user});
     } catch (err) {
         console.log(err);
     }
@@ -23,7 +23,7 @@ export const editUser = async (req, res) => {
             {$set: body}
         );
 
-        res.redirect(303, '/users/:id');
+        res.redirect(303, '/users/me');
     } catch (err) {
         console.log(err);
     }
