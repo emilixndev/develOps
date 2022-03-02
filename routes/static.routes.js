@@ -1,22 +1,17 @@
 import express from "express";
 import path from "path";
 
-import { getArticles } from "../controllers/home.controller";
+import { getArticles } from "../controllers/home.controller.js";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const {Router} = express
 const staticRouter = Router();
-const router = express.Router();
 
 
 
 
-
-
-
-    router.get("/", getArticles);
-    
+staticRouter.get("/", getArticles);
 
 
 staticRouter.get("*", (req, res) => {

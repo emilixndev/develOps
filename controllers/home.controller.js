@@ -1,7 +1,7 @@
 
 import {
     getAllArticles
-} from "../queries/article.querie.js";
+} from "../queries/article.queries.js";
 
 export const getArticles = async (req, res) => {
     try {
