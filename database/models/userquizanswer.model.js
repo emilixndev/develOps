@@ -4,7 +4,6 @@ const {Schema, model} = pkg;
 
 
 const user_quiz_answersSchema = Schema({
-    _id : Schema.Types.ObjectId,
     id_answers: {type: Schema.Types.ObjectId, ref:"answers"},
     id_quiz: {type: Schema.Types.ObjectId, ref:"quiz"},
     attempt : Number,

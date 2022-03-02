@@ -3,7 +3,6 @@ const {Schema, model} = pkg;
 
 
 const questionSchema = Schema({
-    _id : Schema.Types.ObjectId,
     content: String,
 })
 

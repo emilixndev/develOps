@@ -1,5 +1,5 @@
 import express from "express";
-import { getArticles, getArticle, saveNewArticle, editArticle, deleteArticle} from "../controllers/articles.controller";
+import { getArticles, getArticle, saveNewArticle, editArticle, deleteArticle} from "../controllers/articles.controller.js";
 
 const {Router} = express;
 const articlesRouter = Router();
