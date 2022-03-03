@@ -12,15 +12,21 @@
 </head>
 
 <body class="min-vh-100">
-    <%- include('./_navbar.ejs') %>
-    <main class="min-vh-80 position-relative">
 
-        <%- body %>
+<%- include('./_navbar.ejs') %>
+
+
+
+
+
+    <main class="min-vh-80 position-relative">
+        <%- include(template) %>
+
     </main>
     <%- include('./_footer.ejs') %>
 
     <script src="/vendors/bootstrap_v5/js/bootstrap.min.js"></script>
-    <%- script %>
+
 </body>
 
 </html>
