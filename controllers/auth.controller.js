@@ -1,17 +1,24 @@
 import jwt from "jsonwebtoken";
+import {createUser} from "../queries/user.queries.js";
+import {User}  from "../database/models/user.model.js";
+
+
 
 export const createSession = async (req, res) => {
     try {
 
         if (req.method === "GET") {
-            res.render("layout", { template: "auth/login", error: null });
+            res.render("auth/login", { error: null });
         }
 
         if (req.method === "POST") {
-            const { alias, pwd } = req.body;
+            const { email, pwd } = req.body;
 
-            const user = await User.findOne({name: alias});
+
+            const user = await User.findOne({email: email});
+            console.log(user)
             if (!user) {
+
                 res.render("layout", {
                     template: "auth/login",
                     error: "no user with this alias",
@@ -51,30 +58,18 @@ export const deleteSession = (req, res, next) => {
 
 export const newUser = async (req, res) => {
     if (req.method === "GET") {
-        res.render("layout", { template: "auth/register" });
+        res.render("auth/register", { template: "auth/register" });
     }
     if (req.method === "POST") {
         try {
             const body = req.body;
-            
             const user = await createUser(body);
             res.redirect("login");
         } catch (err) {
-            res.render("home", { error: err.message });
+            console.log(err.message)
+            res.render("static/home", { error: err.message });
         }
     }
 };
 
 
-const createUser = async (user) => {
-    try {
-        const hash = await User.hashPassword(user.pwd);
-        const newUser = new User({
-            name: user.alias,
-            password: hash,
-        });
-        return newUser.save();
-    } catch (err) {
-        throw err;
-    }
-};
