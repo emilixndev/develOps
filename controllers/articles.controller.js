@@ -1,7 +1,8 @@
 // import Article model
 
 import {Article} from "../database/models/article.model.js";
-import {createArticle, getCategory, getCategoryByLabel} from "../queries/article.queries.js";
+import {createArticle, getAllArticles, getCategory, getCategoryByLabel} from "../queries/article.queries.js";
+import {getArticles} from "./home.controller.js";
 
 
 // export const getArticles = async (req, res) => {
@@ -55,7 +56,8 @@ export const saveNewArticle = async (req, res) => {
 
 
             const article = await createArticle(body);
-            res.render("layouts/layout", { template:"../static/home" });
+             const Articles = await getAllArticles();
+            res.render("layouts/layout", { template:"../static/home", article : Articles });
         } catch (err) {
             console.log(err.message)
             res.render("static/home", { error: err.message });

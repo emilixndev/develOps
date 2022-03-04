@@ -2,9 +2,21 @@ import { Article } from "../database/models/article.model.js";
 import {Category} from "../database/models/category.model.js";
 
 
-export const getAllArticles = () => {
-    return Article.find({}).exec();
+export const getAllArticles = async () => {
+
+    const articles = await Article.find({}).exec();
+    console.log(articles)
+    const lastFourArticles = articles.sort((a,b)=>b.createdAt -a.createdAt)
+
+    return lastFourArticles.slice(0,4);
+
+
+
 };
+
+
+
+
 
 
 
@@ -22,13 +34,9 @@ export const createArticle = async (article) => {
     }
 };
 
-
-
 export const getCategory = () => {
     return Category.find({}).exec();
 };
-
-
 
 export const getCategoryByLabel = async (alias) => {
     const category = await Category.findOne({ label: alias })
