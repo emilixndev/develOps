@@ -5,6 +5,7 @@ import { getArticles } from "../controllers/home.controller.js";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 import {createSession, deleteSession, newUser} from "../controllers/auth.controller.js";
+import { saveNewArticle } from "../controllers/articles.controller.js";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const {Router} = express
 const staticRouter = Router();
@@ -14,6 +15,7 @@ staticRouter.use((req, res, next) => {
     next();
 });
 
+staticRouter.all("/article/new",saveNewArticle)
 staticRouter.all("/login",createSession);
 staticRouter.all("/register",newUser);
 staticRouter.all("/logout",deleteSession);

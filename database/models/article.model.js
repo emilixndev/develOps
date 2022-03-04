@@ -3,7 +3,7 @@ const {Schema, model} = pkg;
 
 
 const articleSchema = Schema({
-    id_category: {type: Schema.Types.ObjectId, ref:"category"},
+    id_category: {type: Schema.Types.ObjectId, ref:"categories"},
     id_user: {type: Schema.Types.ObjectId, ref:"user"},
     title: String,
     content: String,
